@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cmc: 1
+  colors: MyString
+  type: 
+  supertypes: MyString
+  type_id: 1
+  subtype_id: 1
+  rarity: MyString
+  text: MyString
+  flavor: MyString
+  artist_id: 1
+  number: 1
+  power: 1
+  toughness: 1
+  layout: MyString
+  multiverseid: 1.5
+  imagename: MyString
+  id: MyString
+
+two:
+  name: MyString
+  cmc: 1
+  colors: MyString
+  type: 
+  supertypes: MyString
+  type_id: 1
+  subtype_id: 1
+  rarity: MyString
+  text: MyString
+  flavor: MyString
+  artist_id: 1
+  number: 1
+  power: 1
+  toughness: 1
+  layout: MyString
+  multiverseid: 1.5
+  imagename: MyString
+  id: MyString
