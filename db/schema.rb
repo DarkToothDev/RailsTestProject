@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_215954) do
+ActiveRecord::Schema.define(version: 2018_10_09_222719) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2018_10_09_215954) do
     t.string "colors"
     t.string "type"
     t.string "supertypes"
-    t.integer "type_id"
-    t.integer "subtype_id"
     t.string "rarity"
     t.string "text"
     t.string "flavor"
@@ -37,6 +35,27 @@ ActiveRecord::Schema.define(version: 2018_10_09_215954) do
     t.string "imagename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_cards_on_artist_id"
+  end
+
+  create_table "cardsubtypes", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "type_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cardsubtypes_on_card_id"
+    t.index ["type_id"], name: "index_cardsubtypes_on_type_id"
+  end
+
+  create_table "cardtypes", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "type_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cardtypes_on_card_id"
+    t.index ["type_id"], name: "index_cardtypes_on_type_id"
   end
 
   create_table "subtypes", force: :cascade do |t|
