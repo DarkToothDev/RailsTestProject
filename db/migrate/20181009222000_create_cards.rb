@@ -6,12 +6,10 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string :colors
       t.string :type
       t.string :supertypes
-      t.integer :type_id
-      t.integer :subtype_id
       t.string :rarity
       t.string :text
       t.string :flavor
-      t.integer :artist_id
+      t.references :artist, foreign_key: true
       t.integer :number
       t.integer :power
       t.integer :toughness
