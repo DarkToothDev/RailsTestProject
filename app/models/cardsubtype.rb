@@ -1,5 +1,5 @@
 class Cardsubtype < ApplicationRecord
-  belongs_to :cards
-  belongs_to :subtypes
+  belongs_to :card
+  belongs_to :subtype
 
 end
