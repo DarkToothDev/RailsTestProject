@@ -1,7 +1,5 @@
 class Cardsubtype < ApplicationRecord
-  has_many :cards
-  has_many :subtypes
+  belongs_to :cards
+  belongs_to :subtypes
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
 end

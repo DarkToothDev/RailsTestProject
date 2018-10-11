@@ -4,7 +4,6 @@ class CreateCardsubtypes < ActiveRecord::Migration[5.2]
       t.references :card, foreign_key: true
       t.references :type, foreign_key: true
 
-      t.string :name
       t.timestamps
     end
   end
