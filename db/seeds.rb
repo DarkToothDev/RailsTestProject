@@ -23,10 +23,10 @@ data_hash = JSON.parse(file)
 
 #data_hash.each { |card| puts card[1]['name'].inspect}
 
-alex = Artist.new(name: 'Alex')
+alex = Artist.new(name: 'Alex Stratos')
 puts alex.inspect
 
-18.times do
+19.times do
   artist = Artist.create(name: Faker::Name.unique.name)
   puts artist.inspect
 end
@@ -79,24 +79,6 @@ goblins.each do |card|
   end
 end
 
-all_cards = Card.all
-
-all_cards.each do |card|
-  subtype = Subtype.offset(rand(Subtype.count)).first
-
-  Cardsubtype.create(
-    card: card,
-    subtype: subtype,
-  )
-
-end
-
-all_cards.each do |card|
-  puts card.cardsubtypes.inspect
-end
-
-
-=begin
 phyrexia.each do |card|
   artist = Artist.all.sample
 
@@ -116,7 +98,48 @@ phyrexia.each do |card|
     puts newcard.inspect
 
   end
-=end
+
+
+all_cards = Card.all
+
+all_cards.each do |card|
+  thetype = Type.offset(rand(Type.count)).first
+  Cardtype.create(
+    type: thetype,
+    card: card,
+  )
+end
+
+all_cards.each do |card|
+  subtype = Subtype.offset(rand(Subtype.count)).first
+
+  Cardsubtype.create(
+    card: card,
+    subtype: subtype,
+  )
+
+end
+
+puts 'Final test series:'
+firsta = all_cards.first
+puts firsta.inspect
+puts firsta.cardsubtypes.inspect
+puts 'Part B:'
+firstb = Subtype.all.first
+puts firstb.inspect
+puts "Then inspect cardsubtypes"
+puts firstb.cardsubtypes.inspect
+puts "Then find its card...?"
+firstb.cardsubtypes.each do |item|
+  puts item.card.inspect
+end
+
+puts 'Final Part C:'
+firstc = Cardsubtype.first
+puts firstc.card.name
+puts firstc.subtype.name
+
+
 puts "Made #{all_cards.length} cards"
 
 #data_hash.each { |card| puts card.name }
