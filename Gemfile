@@ -63,3 +63,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ERD fun times
 gem 'rails-erd', group: :development
+
+#FAKER
+gem 'faker'
+
+gem 'bluecloth', '~> 2.2'

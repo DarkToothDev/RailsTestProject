@@ -22,13 +22,11 @@ ActiveRecord::Schema.define(version: 2018_10_09_222719) do
     t.string "name"
     t.integer "cmc"
     t.string "colors"
-    t.string "type"
+    t.string "type_text"
     t.string "supertypes"
-    t.string "rarity"
     t.string "text"
     t.string "flavor"
     t.integer "artist_id"
-    t.integer "number"
     t.integer "power"
     t.integer "toughness"
     t.string "layout"
@@ -40,18 +38,16 @@ ActiveRecord::Schema.define(version: 2018_10_09_222719) do
 
   create_table "cardsubtypes", force: :cascade do |t|
     t.integer "card_id"
-    t.integer "type_id"
-    t.string "name"
+    t.integer "subtype_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_cardsubtypes_on_card_id"
-    t.index ["type_id"], name: "index_cardsubtypes_on_type_id"
+    t.index ["subtype_id"], name: "index_cardsubtypes_on_subtype_id"
   end
 
   create_table "cardtypes", force: :cascade do |t|
     t.integer "card_id"
     t.integer "type_id"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_cardtypes_on_card_id"

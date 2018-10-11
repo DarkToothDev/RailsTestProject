@@ -1,11 +1,11 @@
 class Card < ApplicationRecord
   belongs_to :artist
-  has_many :subtypes
-  has_many :types
+  has_many :cardsubtypes
+  has_many :subtypes, through: :cardsubtypes
+  has_many :cardtypes
+  has_many :types, through: :cardtypes
 
   validates :name, presence: true
   validates :cmc, numericality: { only_integer: true }
   validates :colors, presence: true
-  validates :rarity, presence: true
-  validates :number, numericality: { only_integer: true }
 end
