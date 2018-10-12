@@ -1,0 +1,7 @@
+<ul>
+  <% @artists.each do |artist| %>
+    <li>
+      <%= link_to artist.name, artist %>, see their work?
+    </li>
+  <% end %>
+</ul>
